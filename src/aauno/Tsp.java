@@ -8,6 +8,7 @@ class TSP {
     final int INF = 1000;
 
     public TSP() {
+        String f;
         Scanner s = new Scanner(System.in);
         System.out.println("Ingrese numero de nodos:=>");
         n = s.nextInt();
@@ -22,9 +23,29 @@ class TSP {
                 }
             }
         }
+        f="1,";
+        for(int l=1;l<n;l++)
+        {
+            f=f+Integer.toString(l+1)+",";
+        }
+        
+        String[] jk = f.split(",");
+        int t=n;
+        Perm2(jk,"",t,t);
         System.out.println();
         System.out.println("comenzando en el nodo 1.");
         eval();
+    }
+     private static void Perm2(String[] elem, String act, int n, int r) {
+        if (n == 0) {
+            System.out.println(act);
+        } else {
+            for (int i = 0; i < r; i++) {
+                if (!act.contains(elem[i])) { // Controla que no haya repeticiones
+                    Perm2(elem, act + elem[i] + ", ", n - 1, r);
+                }
+            }
+        }
     }
 
     public int COST(int currentNode, int inputSet[], int setSize) {
