@@ -31,6 +31,8 @@ class TSP {
         
         String[] jk = f.split(",");
         int t=n;
+        System.out.println();
+        System.out.println("Los caminos posibles son : ");
         Perm2(jk,"",t,t);
         System.out.println();
         System.out.println("comenzando en el nodo 1.");
@@ -128,7 +130,7 @@ class TSP {
 
     public void display() {
         System.out.println();
-        System.out.print("The tour is 1-");
+        System.out.print("El camino mas corto es es 1-");
         for (int i = 0; i < n - 1; i++) {
             System.out.print((tour[i] + 1) + "-");
         }
